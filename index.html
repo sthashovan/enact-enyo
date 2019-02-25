@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<title></title>
+		<link href="main.css" rel="stylesheet"/>
+		<style type="text/css">
+			#root {
+				display: none;
+			}
+			a.button {
+			    -webkit-appearance: button;
+			    -moz-appearance: button;
+			    appearance: button;
+
+			    text-decoration: none;
+			    color: initial; 
+			}
+			.choice { 
+				height: 100vh;
+    			text-align: center;
+    			display: flex;
+    			flex-direction: column;
+    			justify-content: center; 
+			}
+		</style>
+		<script type="text/javascript">
+			function tomovies(){
+				document.getElementById("link").style.display = "none";
+				document.getElementById("movieButton").style.display = "none";
+				document.getElementById("root").style.display = "block";
+				var btn = document.createElement("BUTTON");
+				btn.setAttribute("id", "backButton");
+				btn.innerHTML = 'BACK';
+				btn.setAttribute("onclick", "backpress()");
+				document.getElementsByTagName("section")[0].appendChild(btn);
+				var deleteChild;
+				if(document.getElementsByTagName("section")[0].children.length > 1){
+					for(i = 0; i <2; i++){
+						deleteChild = document.getElementsByTagName("section")[0].children[0];
+						deleteChild.parentNode.removeChild(deleteChild);
+					}
+				}
+			}
+
+			function backpress(){
+				document.getElementById("link").style.display = "inline-block";
+				document.getElementById("movieButton").style.display = "inline-block";
+				document.getElementById("root").style.display = "none";	
+				var remove = document.getElementById("backButton");		
+				remove.parentNode.removeChild(remove);
+			}
+		</script>
+	</head>
+	<body>
+		<div id="root"></div>
+		<div class="choice">
+			<div>	
+				<a href="nettv-webos/index.html" id="link" class="button">live tv</a>
+				<button id="movieButton" onclick="tomovies()">movies</button>
+			</div>		
+		</div>
+		<script type="text/javascript" src="main.js"></script></body>
+</html>
